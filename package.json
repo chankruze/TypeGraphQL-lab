@@ -1,0 +1,27 @@
+{
+  "name": "type-graphql-lab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:chankruze/TypeGraphQL-lab.git",
+  "author": "chankruze <chankruze@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.18.2",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^14.11.5",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "start": "nodemon --exec ts-node src/index.ts"
+  }
+}
