@@ -8,7 +8,7 @@ Copyright (c) Geekofia 2020 and beyond
 import "reflect-metadata";
 import { config } from "dotenv";
 import { ApolloServer } from "apollo-server-express";
-import * as Express from "express";
+import Express from "express";
 import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
 import { RegisterResolver } from "./modules/user/Register";

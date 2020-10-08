@@ -1,4 +1,4 @@
-import { Field, ID, ObjectType } from "type-graphql";
+import { Field, ID, ObjectType, Root } from "type-graphql";
 /*
 Author: chankruze (chankruze@geekofia.in)
 Created: Thu Oct 08 2020 06:13:38 GMT+0530 (India Standard Time)
@@ -24,11 +24,13 @@ export class User extends BaseEntity {
   lastName: string;
 
   @Field()
-  name: string
-
-  @Field()
   @Column("text", { unique: true })
   email: string;
+
+  @Field()
+  name(@Root() parent: User): string {
+    return `${parent.firstName} ${parent.lastName}`;
+  }
 
   @Column()
   password: string;
