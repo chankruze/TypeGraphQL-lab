@@ -9,30 +9,21 @@ import "reflect-metadata";
 import { config } from "dotenv";
 import { ApolloServer } from "apollo-server-express";
 import * as Express from "express";
-import { buildSchema, Query, Resolver } from "type-graphql";
+import { buildSchema } from "type-graphql";
+import { createConnection } from "typeorm";
+import { RegisterResolver } from "./modules/user/Register";
 
 // add .env variables to process
 config();
 
-// resolver
-@Resolver()
-class HelloResolver {
-  // @Querry(() => type, { config })
-  @Query(() => String, {
-    name: "helloWorld",
-    description: "Just a demo",
-    nullable: true,
-  })
-  async hello() {
-    return "Hello World!";
-  }
-}
-
 // main function (entry fn)
 const main = async () => {
+  // create connection
+  await createConnection();
+
   // build schema
   const schema = await buildSchema({
-    resolvers: [HelloResolver],
+    resolvers: [RegisterResolver],
   });
   // create apollo server
   const apolloServer = new ApolloServer({ schema });
